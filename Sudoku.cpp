@@ -6,6 +6,7 @@
 #include"Sudoku.h"
 using namespace std;
 
+/*******GiveQuestion*******/
 int ques_init[12][12]={0, 2, 6, 0, 7, 3, 0, 5, 1, -1, -1, -1,
                        0, 0, 3, 9, 5, 0, 6, 0, 4, -1, -1, -1,
                        9, 0, 1, 6, 0, 4, 8, 0, 0, -1, -1, -1,
@@ -31,6 +32,10 @@ void Sudoku::GiveQuestion()
     row_change();
     ran=rand();
     num_change();
+	ran=rand();
+	num_change();
+	ran=rand();
+	num_change();
     for(int j=0; j<12; j++)
     {
         printf("%d", ques[0][j]);
@@ -70,104 +75,92 @@ void Sudoku::change(int i1, int j1, int i2, int j2)
 }
 void Sudoku::column_change()
 {
-     int tmp=ran%6;
-     if(tmp==0)
-         for(int j=0; j<12; j++)
-         {
-             change(0, j, 6, j);
-             change(1, j, 7, j);
-             change(2, j, 8, j);
-         }
-     else if(tmp==1)
-         for(int j=0; j<12; j++)
-         {
-             change(3, j, 9, j);
-             change(4, j, 10, j);
-             change(5, j, 11, j);
-         }
-     else if(tmp==2)
-         for(int j=0; j<12; j++)
-         {
-             change(0, j, 9, j);
-             change(1, j, 10, j);
-             change(2, j, 11, j);
-         }
-     else if(tmp==3)
-         for(int j=0; j<12; j++)
-         {
-             change(0, j, 3, j);
-             change(1, j, 4, j);
-             change(2, j, 5, j);
-         }
-     else if(tmp==4)
-         for(int j=0; j<12; j++)
-         {
-             change(3, j, 6, j);
-             change(4, j, 7, j);
-             change(5, j, 8, j);
-         }
-     else if(tmp==5)
-         for(int j=0; j<12; j++)
-         {
-             change(6, j, 9, j);
-             change(7, j, 10, j);
-             change(8, j, 11, j);
-         }
-     return;
+    int tmp=ran%6;
+    if(tmp==0)
+        for(int j=0; j<12; j++)
+        {
+            change(0, j, 6, j);
+            change(1, j, 7, j);
+            change(2, j, 8, j);
+        }
+    else if(tmp==1)
+        for(int j=0; j<12; j++)
+        {
+            change(3, j, 9, j);
+            change(4, j, 10, j);
+            change(5, j, 11, j);
+        }
+    else if(tmp==2)
+        for(int j=0; j<12; j++)
+        {
+            change(0, j, 9, j);
+            change(1, j, 10, j);
+            change(2, j, 11, j);
+        }
+    else if(tmp==3)
+        for(int j=0; j<12; j++)
+        {
+            change(0, j, 3, j);
+            change(1, j, 4, j);
+            change(2, j, 5, j);
+        }
+    else if(tmp==4)
+        for(int j=0; j<12; j++)
+        {
+            change(3, j, 6, j);
+            change(4, j, 7, j);
+            change(5, j, 8, j);
+        }
+    else if(tmp==5)
+        for(int j=0; j<12; j++)
+        {
+            change(6, j, 9, j);
+            change(7, j, 10, j);
+            change(8, j, 11, j);
+        }
+    return;
 }
 void Sudoku::row_change()
 {
-     int tmp=ran%3;
-     if(tmp==0)
-         for(int i=0; i<12; i++)
-         {
-             change(i, 0, i, 6);
-             change(i, 1, i, 7);
-             change(i, 2, i, 8);
-         }
-     else if(tmp==1)
-         for(int i=0; i<12; i++)
-         {
-             change(i, 3, i, 9);
-             change(i, 4, i, 10);
-             change(i, 5, i, 11);
-         }
-     else if(tmp==2)
-         for(int i=0; i<12; i++)
-         {
-             change(i, 0, i, 9);
-             change(i, 1, i, 10);
-             change(i, 2, i, 11);
-         }
-     else if(tmp==3)
-         for(int i=0; i<12; i++)
-         {
-             change(i, 0, i, 3);
-             change(i, 1, i, 4);
-             change(i, 2, i, 5);
-         }
-     else if(tmp==4)
-         for(int i=0; i<12; i++)
-         {
-             change(i, 3, i, 6);
-             change(i, 4, i, 7);
-             change(i, 5, i, 8);
-         }
-     else if(tmp==5)
-         for(int i=0; i<12; i++)
-         {
-             change(i, 6, i, 9);
-             change(i, 7, i, 10);
-             change(i, 8, i, 11);
-         }
-     return;
+	int tmp=ran%3;
+    if(tmp==0)
+		for(int i=0; i<12; i++)
+			for(int j=0; j<3; j++)
+            	change(i, j, i, j+6);
+    else if(tmp==1)
+        for(int i=0; i<12; i++)
+        {
+            change(i, 3, i, 9);
+            change(i, 4, i, 10);
+            change(i, 5, i, 11);
+        }
+    else if(tmp==2)
+        for(int i=0; i<12; i++)
+        {
+            change(i, 0, i, 9);
+            change(i, 1, i, 10);
+            change(i, 2, i, 11);
+        }
+    else if(tmp==3)
+        for(int i=0; i<12; i++)
+	        for(int j=0; j<3; j++)
+	            change(i, j, i, j+3);
+    else if(tmp==4)
+        for(int i=0; i<12; i++)
+    		for(int j=3; j<6; j++)
+				change(i, j, i, j+3);
+    else if(tmp==5)
+        for(int i=0; i<12; i++)
+            for(int j=6; j<9; j++)
+            	change(i, j, i, j+3);
+    return;
 }
 void Sudoku::num_change()
 {
     int tmp=ran, x, y;
-    x=ran%9+1;
-    ran/=9;
-    y=ran%9+1;
+    x=tmp%9+1;
+    tmp/=9;
+    y=tmp%9+1;
     for(int i=0; i<12; i++)
         for(int j=0; j<12; j++)
         {
@@ -178,6 +171,7 @@ void Sudoku::num_change()
         }
     return;
 }
+/*******ReadIn part*******/
 void Sudoku::ReadIn()
 {
     space=0;
@@ -189,12 +183,14 @@ void Sudoku::ReadIn()
             if(Sudo[i][j]==0)
             {
                 spa_c[space]=i;
-                spa_r[space++]=j;
+                spa_r[space]=j;
+				spa_b[space++]=i+2-(i%3)+12*(j+2-(j%3));
             }
             else if(Sudo[i][j]==-1)
                 check++;
         }
 }
+/*******Solve part*******/
 int Sudoku::column_check(int c)
 {
     memset(flag, 0, sizeof(flag));
@@ -270,8 +266,14 @@ void Sudoku::space_solve(int N)
     }
     for(int i=1; i<10; i++)
     {
-        if(pos[N][i])
+        if(pos[N][i]||pos_fill[N][i])
             continue;
+		for(int j=N+1; j<space; j++)
+			if(spa_c[N]==spa_c[j]||spa_r[N]==spa_r[j]||spa_b[N]==spa_b[j])
+			{
+				pos_fill[j][Sudo[spa_c[N]][spa_r[N]]]=0;
+				pos_fill[j][i]=1;
+			}
         Sudo[spa_c[N]][spa_r[N]]=i;
         space_solve(N+1);
         if(ans_n>1)
@@ -336,7 +338,7 @@ void Sudoku::Solve()
                 return;
             }
         }
-    if(space>64)//判斷空格大於64時不可能只有一解
+    if(space>96)//判斷空格大於96時不可能只有一解
     {
         cout<<"2\n";
         return;
@@ -368,6 +370,7 @@ void Sudoku::Solve()
         }
     }
     ans_n=0;
+	memset(pos_fill, 0, sizeof(pos_fill));
     space_solve(0);
     if(ans_n==0)
         cout<<"0\n";
