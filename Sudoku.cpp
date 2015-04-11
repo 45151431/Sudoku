@@ -19,12 +19,10 @@ int ques_init[12][12]={0, 2, 6, 0, 7, 3, 0, 5, 1, -1, -1, -1,
                        7, 4, 8, -1, -1, -1, 0, 6, 9, 3, 0, 0,
                        0, 0, 0, -1, -1, -1, 3, 1, 0, 7, 0, 8};
 
-Sudoku::Sudoku()
-{
-   srand(time(NULL));
-}
+Sudoku::Sudoku(){}
 void Sudoku::GiveQuestion()
 {
+    srand(time(NULL));
     ran=rand();
     rotate();
     ran=rand();
