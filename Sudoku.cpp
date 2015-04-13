@@ -78,46 +78,28 @@ void Sudoku::column_change()
     int tmp=ran%6;
     if(tmp==0)
         for(int j=0; j<12; j++)
-        {
-            change(0, j, 6, j);
-            change(1, j, 7, j);
-            change(2, j, 8, j);
-        }
+        	for(int i=0; i<3; i++)
+            	change(i, j, i+6, j);
     else if(tmp==1)
         for(int j=0; j<12; j++)
-        {
-            change(3, j, 9, j);
-            change(4, j, 10, j);
-            change(5, j, 11, j);
-        }
+        	for(int i=3; i<6; i++)
+            	change(i, j, i+6, j);
     else if(tmp==2)
         for(int j=0; j<12; j++)
-        {
-            change(0, j, 9, j);
-            change(1, j, 10, j);
-            change(2, j, 11, j);
-        }
+        	for(int i=0; i<3; i++)
+            	change(i, j, i+9, j);
     else if(tmp==3)
         for(int j=0; j<12; j++)
-        {
-            change(0, j, 3, j);
-            change(1, j, 4, j);
-            change(2, j, 5, j);
-        }
+        	for(int i=0; i<3; i++)
+        	    change(i, j, i+3, j);
     else if(tmp==4)
         for(int j=0; j<12; j++)
-        {
-            change(3, j, 6, j);
-            change(4, j, 7, j);
-            change(5, j, 8, j);
-        }
+        	for(int i=3; i<6; i++)
+    	        change(i, j, i+3, j);
     else if(tmp==5)
         for(int j=0; j<12; j++)
-        {
-            change(6, j, 9, j);
-            change(7, j, 10, j);
-            change(8, j, 11, j);
-        }
+        	for(int i=6; i<9; i++)
+	            change(i, j, i+3, j);
     return;
 }
 void Sudoku::row_change()
@@ -129,18 +111,12 @@ void Sudoku::row_change()
             	change(i, j, i, j+6);
     else if(tmp==1)
         for(int i=0; i<12; i++)
-        {
-            change(i, 3, i, 9);
-            change(i, 4, i, 10);
-            change(i, 5, i, 11);
-        }
+            for(int j=3; j<6; j++)
+    	        change(i, j, i, j+6);
     else if(tmp==2)
         for(int i=0; i<12; i++)
-        {
-            change(i, 0, i, 9);
-            change(i, 1, i, 10);
-            change(i, 2, i, 11);
-        }
+        	for(int j=0; j<3; j++)
+    	        change(i, j, i, j+9);
     else if(tmp==3)
         for(int i=0; i<12; i++)
 	        for(int j=0; j<3; j++)
