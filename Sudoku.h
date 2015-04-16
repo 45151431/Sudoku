@@ -24,6 +24,6 @@ class Sudoku
         int check;
         int ans_n;
         bool flag1[12], flag2[12], flag[10];
-        bool pos[144][10], pos_fill[144][10];
+        int pos[144][10], pos_fill[144][10];
 };
 #endif
