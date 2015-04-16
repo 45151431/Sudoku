@@ -23,7 +23,6 @@ class Sudoku
         int space;
         int check;
         int ans_n;
-        int test;
         bool flag1[12], flag2[12], flag[10];
         bool pos[144][10], pos_fill[144][10];
 };
