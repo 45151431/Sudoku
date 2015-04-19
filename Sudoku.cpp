@@ -103,7 +103,7 @@ void Sudoku::column_change()//根據random值做大column間的交換
 }
 void Sudoku::row_change()//根據random值做大row間的交換
 {
-	int tmp=ran%3;
+	int tmp=ran%6;
     if(tmp==0)
 		for(int i=0; i<12; i++)
 			for(int j=0; j<3; j++)
