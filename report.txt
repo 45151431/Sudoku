@@ -1,0 +1,3 @@
+compile: make
+./givequestion 可以出題在stdout內
+./solve 可以解決從stdin內讀入的數獨問題
