@@ -344,14 +344,14 @@ void Sudoku::Solve()
             return;
         }
     }
-    ans_n=0;//將ans數歸0
+	ans_n=0;//將ans數歸0
 	memset(pos_fill, 0, sizeof(pos_fill));
-    space_solve(0);//呼叫解題的function
-    if(ans_n==0)//無解
+	space_solve(0);//呼叫解題的function
+	if(ans_n==0)//無解
         cout<<"0\n";
     else if(ans_n>1)//非唯一解
         cout<<"2\n";
-    else if(ans_n==1)//唯一解
+	else if(ans_n==1)//唯一解
     {
         printf("1\n");
         for(int j=0; j<12; j++)

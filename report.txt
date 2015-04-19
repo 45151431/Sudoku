@@ -1,3 +1,19 @@
 compile: make
 ./givequestion 可以出題在stdout內
 ./solve 可以解決從stdin內讀入的數獨問題
+
+GiveQuestion():
+	先設置一個唯一解的數獨母題目ques_init[12][12]，在隨機對它做旋轉，大行交換，大列交換，數字交換。
+ReadIn():
+	將題目存成Sudo[12][12]。
+column_check()，row_check()，block_check():
+	檢查行列和九宮格內有沒有重複的數字。
+space_solve():
+	recursive填表，將空格填完後再做column，row，block的檢查，若發現無誤，就存成ans[12][12]，若ans_n大於一則return。
+Solve():
+	(261~288)對-1的數量，位置做檢查。
+	(289~315)檢查題目本身不能有重複的數字。
+	(316~320)如果每個九宮格內沒有至少一個數字，就代表多重解。
+	(321~346)存下每個空格本身能填的數字。
+	(347~349)解題。
+	(350~364)如果ans_n=0，無解，輸出0；ans_n>1，多重解，輸出2；ans_n=1，輸出1，並將ans[12][12]輸出。
